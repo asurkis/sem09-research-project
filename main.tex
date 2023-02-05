@@ -1,16 +1,27 @@
 \documentclass{beamer}
 
+\mode<presentation>
+
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 \usepackage{graphicx}
 
-\mode<presentation>
+\usetheme{Madrid}
 
-\title{Robbi: No-code Machine Learning competitions}
+\title{Robbi}
+\subtitle{No-code Machine Learning competitions}
 \author{Антон Суркис}
 
 \begin{document}
+
+\newcommand{\textdim}[2][35]{\textcolor{fg!#1}{#2}}
+
+\AtBeginSection[]{
+	\begin{frame}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
 
 \begin{frame}
 \titlepage

@@ -1,0 +1,67 @@
+\section{Решения}
+
+\begin{frame}
+\frametitle{Задача \ref{itm:task:infra}: разработать клиент для инфраструктуры ОК}
+\begin{itemize}
+	\item Взаимодействия с Airflow API:
+	\begin{itemize}
+		\item получение списка моделей
+		\item запуск и остановка обучения моделей
+		\item получение информации о статусе обучения
+		\item выбор параметров модели
+		\item экспорт метрик
+	\end{itemize}
+	\item Конечный автомат состояний обучения модели:
+	\begin{itemize}
+		\item непосредственно конечный автомат
+		\item \textdim{Data Access Object для хранения его в БД}
+	\end{itemize}
+	\item \textdim{Схема БД для хранения информации о моделях и пользователях:}
+	\begin{itemize}
+		\item \textdim{клиентский код для взаимодействия с Cassandra}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача \ref{itm:task:infra}: промежуточные результаты}
+\begin{block}{Сделано}
+	\begin{itemize}
+		\item Взаимодействия с Airflow API:
+		\begin{itemize}
+			\item получение списка моделей
+			\item запуск и остановка обучения моделей
+			\item получение информации о статусе обучения
+			\item выбор параметров модели
+		\end{itemize}
+	\end{itemize}
+\end{block}
+
+\begin{block}{Сделано частично}
+	\begin{itemize}
+		\item Конечный автомат состояний обучения модели:
+		\begin{itemize}
+			\item непосредственно конечный автомат
+		\end{itemize}
+	\end{itemize}
+\end{block}
+
+\begin{block}{В планах}
+	\begin{itemize}
+		\item Реализация взаимодействия с Airflow API:
+		\begin{itemize}
+			\item экспорт метрик
+		\end{itemize}
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача \ref{itm:task:infra}: блокеры}
+\begin{block}{Взаимодействие с БД}
+	Реализовано частично.
+
+	Временное решение: сервис читает статическое
+	состояние БД и меняет состояние Airflow в соответствии с ним.
+\end{block}
+\end{frame}
