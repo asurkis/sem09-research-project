@@ -1,6 +1,45 @@
-\section{Выводы}
+\section{Результаты}
 
 \begin{frame}
-\frametitle{Выводы}
-< < <Думаю, что написать> > >
+\frametitle{Задача \ref{itm:task:infra}: что сделано}
+\begin{itemize}
+    \item Взаимодействия с Airflow API:
+    \begin{itemize}
+        \item Получение списка моделей
+        \item Запуск и остановка обучения моделей
+        \item Получение информации о статусе обучения
+        \item Выбор параметров модели
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача \ref{itm:task:infra}: что сделано частично}
+\begin{itemize}
+    \item Конечный автомат состояний обучения модели:
+    \begin{itemize}
+        \item Непосредственно конечный автомат
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача \ref{itm:task:infra}: что планируется сделать}
+\begin{itemize}
+    \item Реализация взаимодействия с Airflow API:
+    \begin{itemize}
+        \item Экспорт метрик
+    \end{itemize}
+    \item Автоматизированные тесты системы
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача \ref{itm:task:infra}: блокеры}
+\begin{block}{Взаимодействие с БД}
+    Реализовано частично.
+
+    Временное решение: сервис читает статическое
+    состояние БД и меняет состояние Airflow в соответствии с ним.
+\end{block}
 \end{frame}
