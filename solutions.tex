@@ -41,19 +41,19 @@ Airflow и Cassandra уже существуют и развёрнуты у ОК
 \frametitle{Состояния одного процесса}
 \begin{center}
     \begin{tikzpicture}[node distance=2cm,>={stealth},line width=1pt]
-        \node (queued)                                                         {В очереди}       ;
-        \node (running)    [ below of       = queued                         ] {Запущен}         ;
-        \node (stopping)   [ below of       = running                        ] {Останавливается} ;
-        \node (finished)   [ below left of  = stopping                       ] {Завершился}      ;
+        \node (running)                                                        {Запущен}         ;
+        \node (queued)     [ left        of = running    , node distance=3cm ] {В очереди}       ;
+        \node (stopping)   [ below       of = running                        ] {Останавливается} ;
+        \node (finished)   [ below left  of = stopping                       ] {Завершился}      ;
         \node (terminated) [ below right of = stopping                       ] {Упал}            ;
-        \node (restarting) [ right of       = terminated , node distance=3cm ] {Перезапускается} ;
+        \node (restarting) [ right       of = terminated , node distance=3cm ] {Перезапускается} ;
 
         \draw[->] (queued)     to                      (running);
         \draw[->] (queued)     to [ out=225          ] (finished);
         \draw[->] (restarting) to [ out=90  , in=0   ] (running);
         \draw[->] (restarting) to [ out=225 , in=315 ] (finished);
         \draw[->] (running)    to                      (stopping);
-        \draw[->] (running)    to [ out=180          ] (finished);
+        \draw[->] (running)    to [ out=225          ] (finished);
         \draw[->] (running)    to [ out=315 , in=45  ] (terminated);
         \draw[->] (stopping)   to                      (finished);
         \draw[->] (stopping)   to                      (terminated);
